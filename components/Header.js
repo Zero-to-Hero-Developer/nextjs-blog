@@ -9,16 +9,13 @@ const HeaderDiv = styled.div`
 `;
 
 export default () => (
-  <div>
-    <HeaderDiv>
-      <Link href="/" passHref>
-        <a>Ana Sayfa</a>
-      </Link>
-    </HeaderDiv>
-    <div>
-      <Link href="/about" passHref>
-        <a>Hakkımızda</a>
-      </Link>
-    </div>
-  </div>
+  <HeaderDiv>
+    <Link href="/" passHref>
+      <a>Ana Sayfa</a>
+    </Link>
+
+    <Link href="/about" passHref>
+      <a>Hakkımızda</a>
+    </Link>
+  </HeaderDiv>
 );
