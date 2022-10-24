@@ -1,10 +1,16 @@
 import Link from "next/link";
 import Header from "./header";
+import styled from "styled-components";
+
+const StyledHeader = styled(Header)`
+  border: 10px solid yellow;
+  background-color: red;
+`;
 
 export default ({ title, children }) => (
   <div>
     <h1>{title}</h1>
-    <Header />
+    <StyledHeader />
     <div style={{ padding: "20px", margin: "20px", backgroundColor: "tomato" }}>
       {children}
     </div>
