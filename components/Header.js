@@ -13,10 +13,11 @@ const HeaderDiv = styled.div`
   }
 `;
 
-const StyledA = styled.a`
+const StyledLink = styled.div`
   color: #fff;
   text-decoration: none;
-  border: ${({ borderSize }) => `${borderSize}px`} solid yellow;
+  border-bottom: ${({ borderSize }) => `${borderSize}px`} solid
+    rgba(255, 255, 255, 0.5);
   font-size: ${({ big }) => (big ? "20px" : "12px")};
   &:hover {
     text-decoration: underline;
@@ -26,13 +27,13 @@ const StyledA = styled.a`
 export default () => (
   <HeaderDiv>
     <Link href="/" passHref>
-      <StyledA borderSize={20}>Ana Sayfa</StyledA>
+      <StyledLink borderSize={2}>Ana Sayfa</StyledLink>
     </Link>
 
     <Link href="/about" passHref>
-      <StyledA borderSize={10} big>
+      <StyledLink borderSize={1} big>
         Hakkımızda
-      </StyledA>
+      </StyledLink>
     </Link>
 
     <span>Ek açıklamalar</span>
