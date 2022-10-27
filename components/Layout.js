@@ -1,4 +1,4 @@
-import Header from "./header";
+import Header from "./Header";
 import styled from "styled-components";
 
 const BodyDiv = styled.div`
@@ -12,7 +12,6 @@ const Footer = styled.footer`
 `;
 
 const Content = styled.div`
-  background-color: #f00;
   padding: 20px;
 `;
 
