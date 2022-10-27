@@ -7,18 +7,25 @@ const BodyDiv = styled.div`
 `;
 
 const Footer = styled.footer`
-  background-color: #ccc;
+  background-color: #000;
   padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 `;
 
 const Content = styled.div`
   padding: 20px;
 `;
 
+const H1 = styled.h1`
+  padding: 20px;
+`;
+
 export default ({ title, children }) => (
   <BodyDiv>
-    <h1>{title}</h1>
     <Header />
+    <H1>{title}</H1>
     <Content>{children}</Content>
     <Footer>
       <a
