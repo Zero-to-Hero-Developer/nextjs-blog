@@ -6,14 +6,22 @@ const BodyDiv = styled.div`
   padding: 0;
 `;
 
+const Footer = styled.footer`
+  background-color: #ccc;
+  padding: 20px;
+`;
+
+const Content = styled.div`
+  background-color: #f00;
+  padding: 20px;
+`;
+
 export default ({ title, children }) => (
   <BodyDiv>
     <h1>{title}</h1>
     <Header />
-    <div style={{ padding: "20px", margin: "20px", backgroundColor: "tomato" }}>
-      {children}
-    </div>
-    <footer>
+    <Content>{children}</Content>
+    <Footer>
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
@@ -21,6 +29,6 @@ export default ({ title, children }) => (
       >
         Powered by vercel
       </a>
-    </footer>
+    </Footer>
   </BodyDiv>
 );
