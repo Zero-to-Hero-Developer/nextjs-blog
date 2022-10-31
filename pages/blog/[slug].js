@@ -1,21 +1,10 @@
 import fs from "fs";
 import matter from "gray-matter";
 import md from "markdown-it";
-import { useRouter } from "next/router";
-import Error from "next/error";
 import Layout from "../../components/Layout";
 
 export default ({ frontmatter, content }) => {
   const { title, author, category, date, bannerImage, tags } = frontmatter;
-
-  // const router = useRouter();
-  // const { slug } = router.query;
-
-  // let foundItem = data.find((dataItem) => dataItem.slug === slug);
-
-  // if (!foundItem) {
-  //   return <Error statusCode={404} />;
-  // }
 
   return (
     <Layout title={title}>
