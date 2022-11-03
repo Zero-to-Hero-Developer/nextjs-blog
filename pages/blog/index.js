@@ -1,19 +1,8 @@
-import Button from "../../components/Button";
+import fs from "fs";
+import matter from "gray-matter";
+import Link from "next/link";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
-
-const blogContents = [
-  {
-    href: "gunluk-1",
-    title: "Günlük yazı 1",
-    text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-  },
-  {
-    href: "gunluk-2",
-    title: "Günlük yazı 2",
-    text: " If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
-  },
-];
 
 const H2 = styled.h2`
   margin: 0;
@@ -31,17 +20,52 @@ const BlogWrapper = styled.div`
   gap: 10px;
 `;
 
-export default () => (
+export default ({ posts }) => (
   <Layout title="Blog">
     Burada yazılar yer alacak
     <BlogWrapper>
-      {blogContents.map((item, index) => (
-        <BlogDiv key={index}>
-          <H2>{item.title}</H2>
-          <p>{item.text}</p>
-          <Button href={`/blog/${item.href}`}>Devamı</Button>
-        </BlogDiv>
-      ))}
+      {posts.map((post) => {
+        //extract slug and frontmatter
+        const { slug, frontmatter } = post;
+        //extract frontmatter properties
+        const { title, author, category, date, bannerImage, tags } =
+          frontmatter;
+
+        //JSX for individual blog listing
+        return (
+          <article key={title}>
+            <Link href={`/blog/${slug}`}>
+              <h1>{title}</h1>
+            </Link>
+            <h3>{author}</h3>
+            <h3>{date}</h3>
+          </article>
+        );
+      })}
     </BlogWrapper>
   </Layout>
 );
+
+export async function getStaticProps() {
+  // get list of files from the posts folder
+  const files = fs.readdirSync("posts");
+
+  // get frontmatter & slug from each post
+  const posts = files.map((fileName) => {
+    const slug = fileName.replace(".md", "");
+    const readFile = fs.readFileSync(`posts/${fileName}`, "utf-8");
+    const { data: frontmatter } = matter(readFile);
+
+    return {
+      slug,
+      frontmatter,
+    };
+  });
+
+  // Return the pages static props
+  return {
+    props: {
+      posts,
+    },
+  };
+}
