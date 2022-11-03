@@ -8,13 +8,23 @@ const BodyDiv = styled.div`
 
 const Footer = styled.footer`
   background-color: #000;
-  padding: 20px;
   position: fixed;
   bottom: 0;
   width: 100vw;
 `;
 
+const FooterInner = styled.div`
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+`;
+
 const Content = styled.div`
+  max-width: 800px;
+  margin: auto;
+`;
+
+const ContentInner = styled.div`
   padding: 20px;
 `;
 
@@ -25,16 +35,20 @@ const H1 = styled.h1`
 export default ({ title, children }) => (
   <BodyDiv>
     <Header />
-    <H1>{title}</H1>
-    <Content>{children}</Content>
+    <Content>
+      <H1>{title}</H1>
+      <ContentInner>{children}</ContentInner>
+    </Content>
     <Footer>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by vercel
-      </a>
+      <FooterInner>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by vercel
+        </a>
+      </FooterInner>
     </Footer>
   </BodyDiv>
 );
