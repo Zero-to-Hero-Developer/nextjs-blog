@@ -46,7 +46,7 @@ export default ({ title, children }) => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by vercel
+          Powered by vercel - #Tarih#
         </a>
       </FooterInner>
     </Footer>
