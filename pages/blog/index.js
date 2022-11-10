@@ -20,31 +20,33 @@ const BlogWrapper = styled.div`
   gap: 10px;
 `;
 
-export default ({ posts }) => (
-  <Layout title="Blog">
-    Burada yazılar yer alacak
-    <BlogWrapper>
-      {posts.map((post) => {
-        //extract slug and frontmatter
-        const { slug, frontmatter } = post;
-        //extract frontmatter properties
-        const { title, author, category, date, bannerImage, tags } =
-          frontmatter;
+export default function Blog({ posts }) {
+  return (
+    <Layout title="Blog">
+      Burada yazılar yer alacak
+      <BlogWrapper>
+        {posts.map((post) => {
+          //extract slug and frontmatter
+          const { slug, frontmatter } = post;
+          //extract frontmatter properties
+          const { title, author, category, date, bannerImage, tags } =
+            frontmatter;
 
-        //JSX for individual blog listing
-        return (
-          <article key={title}>
-            <Link href={`/blog/${slug}`}>
-              <h1>{title}</h1>
-            </Link>
-            <h3>{author}</h3>
-            <h3>{date}</h3>
-          </article>
-        );
-      })}
-    </BlogWrapper>
-  </Layout>
-);
+          //JSX for individual blog listing
+          return (
+            <article key={title}>
+              <Link href={`/blog/${slug}`}>
+                <h1>{title}</h1>
+              </Link>
+              <h3>{author}</h3>
+              <h3>{date}</h3>
+            </article>
+          );
+        })}
+      </BlogWrapper>
+    </Layout>
+  );
+}
 
 export async function getStaticProps() {
   // get list of files from the posts folder

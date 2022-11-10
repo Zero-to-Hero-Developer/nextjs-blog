@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import md from "markdown-it";
 import Layout from "../../components/Layout";
 
-export default ({ frontmatter, content }) => {
+export default function BlogDetail({ frontmatter, content }) {
   const { title, author, category, date, bannerImage, tags } = frontmatter;
 
   return (
@@ -17,7 +17,7 @@ export default ({ frontmatter, content }) => {
       <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
     </Layout>
   );
-};
+}
 
 export async function getStaticPaths() {
   // Get list of all files from our posts directory
