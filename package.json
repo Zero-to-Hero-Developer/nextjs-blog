@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "icomoon-react": "^3.0.0",
     "markdown-it": "^13.0.1",
     "next": "^13.0.0",
     "react": "^18.2.0",

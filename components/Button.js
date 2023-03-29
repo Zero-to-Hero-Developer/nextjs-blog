@@ -5,6 +5,8 @@ const StyledLink = styled.div`
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+  display: flex;
+  gap: 4px;
   &:hover {
     color: rgba(255, 255, 255, 0.7);
   }
